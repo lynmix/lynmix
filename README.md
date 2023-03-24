@@ -1,1 +1,1 @@
-# lynmix
+# Lynmix

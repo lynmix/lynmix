@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": false,
+  "extends": ["config:base", "group:allNonMajor", ":semanticCommitTypeAll(chore)"],
+  "meteor": {
+    "enabled": false
+  },
+  "rangeStrategy": "bump",
+  "npm": {
+    "commitMessageTopic": "{{prettyDepType}} {{depName}}"
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": false
+    },
+    {
+      "matchDepTypes": ["engines", "@types/node"],
+      "enabled": false
+    }
+  ]
+}

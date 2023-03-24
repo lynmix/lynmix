@@ -1,0 +1,71 @@
+name: CI
+
+env:
+  NODE_OPTIONS: --max-old-space-size=6144
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  FORCE_COLOR: true
+
+on:
+  push:
+    paths-ignore:
+      - 'examples/**'
+      - 'docs/**'
+      - '**/*.md'
+  # pull_request:
+  #   types:
+  #     - 'opened'
+  #     - 'synchronize'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: 'Build: ${{ matrix.os }} (node@${{ matrix.node-version }})'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [14, 16, 18]
+        include:
+          - os: macos-12
+            node-version: 16
+          - os: windows-latest
+            node-version: 16
+      fail-fast: false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.2.4
+
+      - name: Setup node@${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Packages
+        run: pnpm run build
+
+      - name: Test
+        run: pnpm run test
+        env:
+          CI: true
+          NODE_ENV: test
