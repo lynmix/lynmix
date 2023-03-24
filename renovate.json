@@ -1,11 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "automerge": false,
-  "extends": ["config:base", "group:allNonMajor", ":semanticCommitTypeAll(chore)"],
+  "dependencyDashboard": false,
+  "extends": ["config:base", "schedule:earlyMondays"],
+  "labels": ["dependencies"],
+  "rebaseWhen": "conflicted",
   "meteor": {
     "enabled": false
   },
   "rangeStrategy": "bump",
+  "timezone": "UTC",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": "before 6:00am on the first day of the month"
+  },
+  "prConcurrentLimit": 30,
+  "prHourlyLimit": 0,
   "npm": {
     "commitMessageTopic": "{{prettyDepType}} {{depName}}"
   },
@@ -17,6 +27,14 @@
     {
       "matchDepTypes": ["engines", "@types/node", "typescript"],
       "enabled": false
+    },
+    {
+      "groupName": "react",
+      "matchPackageNames": ["react", "react-dom"]
+    },
+    {
+      "groupName": "eslint",
+      "matchPackagePatterns": ["eslint*"]
     }
   ]
 }
