@@ -15,7 +15,7 @@
       "automerge": false
     },
     {
-      "matchDepTypes": ["engines", "@types/node"],
+      "matchDepTypes": ["engines", "@types/node", "typescript"],
       "enabled": false
     }
   ]
