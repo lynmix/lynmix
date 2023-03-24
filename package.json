@@ -12,6 +12,8 @@
     "clean": "tsx ./scripts/clean.ts",
     "cov": "vitest run --coverage",
     "dep:update": "pnpm up --interactive --latest --recursive",
+    "docs:build": "vitepress build docs",
+    "docs:dev": "vitepress dev docs",
     "dev": "pnpm -r --filter=./packages/** run dev",
     "format": "prettier --cache --write .",
     "preinstall": "npx only-allow pnpm",
@@ -46,6 +48,7 @@
     "tsup": "^6.7.0",
     "tsx": "^3.12.6",
     "typescript": "^4.9.5",
+    "vitepress": "1.0.0-alpha.61",
     "vite": "^4.2.1",
     "vitest": "^0.29.7"
   },
