@@ -11,3 +11,4 @@ fixtures
 tests/**/out/**
 pnpm-lock.yaml
 coverage/**
+.vitepress/cache

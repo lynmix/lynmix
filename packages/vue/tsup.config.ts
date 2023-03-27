@@ -15,8 +15,7 @@ export default defineConfig([
     platform: 'node',
     clean: true,
     dts: true,
-    external: [
-    ],
+    external: [],
     format: ['cjs', 'esm'],
     outExtension: outExtensionFn,
   },

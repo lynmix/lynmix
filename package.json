@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "bootstrap": "tsx scripts/bootstrap.ts",
-    "packages": "pnpm --filter=./packages/** -r",
     "build": "pnpm packages -- build",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
@@ -19,10 +18,16 @@
     "format": "prettier --cache --write .",
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint packages --ext .ts",
+    "packages": "pnpm --filter=./packages/** -r",
     "prepare": "husky install",
     "release": "pnpm run build && changeset publish",
     "test": "vitest",
     "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "lint-staged": {
     "*.{jsx,less,md,json}": [
@@ -32,17 +37,12 @@
       "prettier --parser=typescript --write"
     ]
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.1",
     "@commitlint/cli": "^17.5.0",
     "@commitlint/config-conventional": "^17.4.4",
-    "@types/node": "^18.15.7",
+    "@types/node": "^18.15.10",
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
     "@vitest/coverage-c8": "^0.29.7",

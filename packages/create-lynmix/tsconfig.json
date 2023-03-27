@@ -16,7 +16,6 @@
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "outDir": "./dist",
-    "composite": true,
     "rootDir": "."
   },
   "exclude": ["dist", "__tests__", "node_modules", "tsup.config.ts"]

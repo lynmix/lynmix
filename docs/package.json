@@ -1,8 +1,8 @@
 {
   "name": "@lynmix/docs",
   "scripts": {
-    "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
+    "docs:dev": "vitepress dev",
     "docs:preview": "vitepress preview"
   }
 }

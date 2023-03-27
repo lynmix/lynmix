@@ -1,1 +1,1 @@
-# @lynmix/vue
+# @lynmix/node
