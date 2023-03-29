@@ -1,17 +1,15 @@
-import type { Format } from 'tsup';
-import { defineConfig } from 'tsup';
+import type { Format } from 'tsup'
+import { defineConfig } from 'tsup'
 
 const outExtensionFn = ({ format }: { format: Format }) => {
-  if (format === 'esm') return { js: `.mjs` };
-  if (format === 'iife') return { js: `.${format}.js` };
-  return { js: `.cjs` };
-};
+  if (format === 'esm') return { js: `.mjs` }
+  if (format === 'iife') return { js: `.${format}.js` }
+  return { js: `.cjs` }
+}
 
 export default defineConfig([
   {
-    entry: {
-      index: 'src/index.ts',
-    },
+    entry: ['src'],
     platform: 'node',
     clean: true,
     dts: true,
@@ -19,4 +17,4 @@ export default defineConfig([
     format: ['cjs', 'esm'],
     outExtension: outExtensionFn,
   },
-]);
+])

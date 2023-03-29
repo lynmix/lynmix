@@ -15,7 +15,7 @@
     "directory": "packages/lynmix"
   },
   "license": "MIT",
-  "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -26,14 +26,19 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "bin": {
+    "lynmix": "lynmix.js"
+  },
   "files": [
-    "dist"
+    "dist",
+    "lynmix.js"
   ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch"
   },
   "dependencies": {
+    "cac": "^6.7.14",
     "lodash-es": "^4.17.21",
     "picocolors": "^1.0.0"
   },

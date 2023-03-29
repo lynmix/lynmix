@@ -1,23 +1,9 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "lib": ["ES2019", "DOM.Iterable"],
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "module": "ES2020",
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "strict": true,
-    "target": "ES2020",
-    "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": true,
     "outDir": "./dist",
-    "composite": true,
-    "rootDir": "."
+    "rootDir": ".",
+    "resolveJsonModule": true
   },
-  "exclude": ["dist", "__tests__", "node_modules", "tsup.config.ts"]
+  "include": ["src"]
 }

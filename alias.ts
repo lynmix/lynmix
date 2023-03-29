@@ -1,6 +1,6 @@
-import { resolve } from 'path';
+import { resolve } from 'path'
 
-const r = (p: string) => resolve(__dirname, p);
+const r = (p: string) => resolve(__dirname, p)
 
 export const alias: Record<string, string> = {
   lynmix: r('./packages/lynmix/src/'),
@@ -14,4 +14,4 @@ export const alias: Record<string, string> = {
   '@lynmix/runtime': r('./packages/runtime/src/'),
   '@lynmix/express': r('./packages/express/src/'),
   'create-lynmix': r('./packages/create-lynmix/src/'),
-};
+}

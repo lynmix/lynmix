@@ -1,3 +1,5 @@
-(async () => {
-  console.log(1);
-})();
+import 'zx/globals'
+
+function main() {}
+
+main()

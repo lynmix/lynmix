@@ -7,7 +7,7 @@
     "start": "lynmix start"
   },
   "devDependencies": {
-    "@types/react": "^18.0.29",
+    "@types/react": "^18.0.31",
     "lynmix": "workspace:*",
     "react": "^18.2.0"
   }
