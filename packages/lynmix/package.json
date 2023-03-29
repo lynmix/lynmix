@@ -27,15 +27,19 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "bin": {
-    "lynmix": "lynmix.js"
+    "lynmix": "bin/lynmix.mjs"
   },
   "files": [
     "dist",
-    "lynmix.js"
+    "bin",
+    "*.d.ts",
+    "*.mjs",
+    "*.cjs"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch"
+    "build": "rimraf dist && tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "cac": "^6.7.14",

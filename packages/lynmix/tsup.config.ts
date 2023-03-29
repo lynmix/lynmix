@@ -14,6 +14,7 @@ export default defineConfig([
     clean: true,
     dts: true,
     external: [],
+    outDir: 'dist',
     format: ['cjs', 'esm'],
     outExtension: outExtensionFn,
   },

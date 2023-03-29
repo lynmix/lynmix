@@ -3,7 +3,7 @@
 'use strict'
 
 async function main() {
-  return import('./dist/cli.mjs').then(({ cli }) => cli(process.argv))
+  return import('../dist/node/cli.mjs').then(({ cli }) => cli(process.argv))
 }
 
 main()

@@ -1,2 +1,0 @@
-export { defineConfig } from "./config";
-
