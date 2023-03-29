@@ -9,9 +9,7 @@ const outExtensionFn = ({ format }: { format: Format }) => {
 
 export default defineConfig([
   {
-    entry: {
-      index: 'src/index.ts',
-    },
+    entry: ['src'],
     platform: 'node',
     clean: true,
     dts: true,

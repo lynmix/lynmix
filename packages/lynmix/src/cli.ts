@@ -1,6 +1,6 @@
 import cac from 'cac'
 import path from 'path'
-import { version } from '../package.json'
+import { version } from './constant'
 
 export async function cli(args: string[]) {
   const cli = cac('lynmix')
@@ -11,7 +11,8 @@ export async function cli(args: string[]) {
     })
     .action(async (root: string, flags: any) => {
       root = path.resolve(root || '.')
-      console.log(root)
+      console.log('root', root)
+      console.log('flags', flags)
     })
 
   cli
@@ -20,6 +21,8 @@ export async function cli(args: string[]) {
     })
     .action(async (root: string, flags: any) => {
       root = path.resolve(root || '.')
+      console.log('root', root)
+      console.log('flags', flags)
     })
 
   cli
@@ -28,6 +31,8 @@ export async function cli(args: string[]) {
     })
     .action(async (root: string, flags: any) => {
       root = path.resolve(root || '.')
+      console.log('root', root)
+      console.log('flags', flags)
     })
 
   cli
@@ -36,6 +41,8 @@ export async function cli(args: string[]) {
     })
     .action(async (root: string, flags: any) => {
       root = path.resolve(root || '.')
+      console.log('root', root)
+      console.log('flags', flags)
     })
 
   // Listen to unknown commands
