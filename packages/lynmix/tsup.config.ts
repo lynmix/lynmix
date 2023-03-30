@@ -13,9 +13,13 @@ export default defineConfig([
     platform: 'node',
     clean: true,
     dts: true,
-    external: [],
+    sourcemap: true,
+    external: [
+      // 'vite'
+    ],
     outDir: 'dist',
     format: ['cjs', 'esm'],
+    // minify: true,
     outExtension: outExtensionFn,
   },
 ])

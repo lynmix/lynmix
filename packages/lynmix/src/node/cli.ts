@@ -1,5 +1,6 @@
 import cac from 'cac'
 import path from 'path'
+import { loadConfigFromFile } from 'vite'
 import { VERSION } from './constants'
 
 // global options
@@ -12,6 +13,14 @@ interface GlobalCLIOptions {
 
 async function dev(root: string, options: GlobalCLIOptions) {
   root = path.resolve(root || '.')
+  const config = await loadConfigFromFile(
+    {
+      mode: 'development',
+      command: 'serve',
+    },
+    path.join(root, 'lynmix.config.ts'),
+  )
+  console.log(config)
   console.log('dev', root, options)
 }
 
